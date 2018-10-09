@@ -71,10 +71,10 @@
                             <li ><a class="menu"
                                         href="{{route('admin.models.index')}}"><span> Modelos</span></a></li>
                             @endpermission
-                            @permission('colors.list')
+                            {{-- @permission('colors.list')
                             <li><a class="menu"
                             href="{{route('admin.colors.index')}}"><span> Colores</span></a></li>
-                            @endpermission
+                            @endpermission --}}
                             {{--@permission('additionals.list')--}}
                             {{--<li class={{ Request::segment(2) == "additionals" ? 'active' : '' }}><a--}}
                             {{--href="{{route('configs.additionals.index')}}"><span> Adicionales</span></a></li>--}}
@@ -88,13 +88,13 @@
             @endpermission
 
 
-            @permission('providers.list|purchasesorders.list|dispatches.list')
+            {{-- @permission('providers.list|purchasesorders.list|dispatches.list')
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-industry "></i> <span>Compras</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
-          </span>
+                </span>
                 </a>
                 <ul class="treeview-menu">
                     @permission('providers.list')
@@ -107,7 +107,7 @@
                                 href="{{route('admin.purchasesListsPrices.index')}}"><span> Listas de Precios Compra</span></a>
                     </li>
                     @endpermission
-                    --}}
+                
                     @permission('purchasesorders.list')
                     <li ><a class="menu"
                                 href="{{route('admin.purchasesOrders.index')}}"><span>Perdidos de Mercaderias</span></a>
@@ -117,17 +117,16 @@
                     @permission('purchasesorders.list')
                     <li class={{ Request::segment(2) == '' ? 'active' : '' }}><a href=""><span>Notas de Pedidos</span></a></li>
                     @endpermission
-                    --}}
+                
                     @permission('dispatches.list')
                     <li ><a class="menu"
                                 href="{{route('admin.dispatches.index')}}"><span>Remitos</span></a></li>
                     @endpermission
-
                 </ul>
             </li>
-            @endpermission
+            @endpermission --}}
 
-            @permission('sales.list|vouchers.list')
+            {{-- @permission('sales.list|vouchers.list')
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-shopping-cart "></i> <span>Ventas</span>
@@ -139,7 +138,7 @@
                     {{--@permission('budgets.list')--}}
                     {{--<li class={{ Request::segment(2) == "budgets" ? 'active' : '' }}><a--}}
                     {{--href="{{route('admin.budgets.index')}}"><span>Presupuestos</span></a></li>--}}
-                    {{--@endpermission--}}
+                    {{--@endpermission
                     @permission('sales.list')
                     <li><a class="menu"
                                 href="{{route('admin.sales.index')}}"><span>Ventas</span></a></li>
@@ -152,7 +151,7 @@
 
                 </ul>
             </li>
-            @endpermission
+            @endpermission --}}
 
             @permission('smallboxes.list')
             <li class="treeview">
