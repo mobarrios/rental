@@ -95,14 +95,11 @@
                             </tr>
                             <tr>
                                 <td><span class="text-muted"> Mail</span></td>
-                                <td><strong id="mail">{!! isset($models) ? $models->clients->email : '' !!}</strong>
-                                </td>
+                                <td><strong id="mail">{!! isset($models) ? $models->clients->email : '' !!}</strong></td>
                             </tr>
                             <tr>
-                                <td>
-                                    <span class="input-group-btn">
-                                        <button type="submit" class="btn btn-default btn-flat">Continuar</button>
-                                    </span>
+                                <td colspan="2" >
+                                        <button type="submit" class="btn btn-md btn-primary">Continuar</button>
                                 </td>
                             </tr>
                         </table>

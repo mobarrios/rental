@@ -31,6 +31,20 @@
             @endpermission
 
 
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-calendar "></i><span>Alquileres</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu">
+                         <li><a class="menu" href="{{route('admin.rentals.index')}}"><span >Lista de Alquileres</span></a></li>
+                </ul>
+                
+            </li>
+
+
             @permission('items.list|modelslistsprices.list|additionals.list | brands.list | categories.list | models.list | colors.list | additionals.list')
             <li class="treeview">
                 <a href="#">
@@ -126,7 +140,7 @@
             </li>
             @endpermission --}}
 
-            {{-- @permission('sales.list|vouchers.list')
+            @permission('sales.list|vouchers.list')
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-shopping-cart "></i> <span>Ventas</span>
@@ -138,7 +152,7 @@
                     {{--@permission('budgets.list')--}}
                     {{--<li class={{ Request::segment(2) == "budgets" ? 'active' : '' }}><a--}}
                     {{--href="{{route('admin.budgets.index')}}"><span>Presupuestos</span></a></li>--}}
-                    {{--@endpermission
+                    {{--@endpermission--}}
                     @permission('sales.list')
                     <li><a class="menu"
                                 href="{{route('admin.sales.index')}}"><span>Ventas</span></a></li>
@@ -151,9 +165,9 @@
 
                 </ul>
             </li>
-            @endpermission --}}
+            @endpermission
 
-            @permission('smallboxes.list')
+            {{-- @permission('smallboxes.list')
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-money"></i> <span>Caja</span>
@@ -166,7 +180,7 @@
                                 href="{{route('admin.smallBoxes.index')}}"><span>Movimientos</span></a></li>
                 </ul>
             </li>
-            @endpermission
+            @endpermission --}}
 
 
             @permission('roles.list|permissions.list|users.list|logs.list|additionals.list|company.list|branches.list|additionals.list')
@@ -207,7 +221,7 @@
                             <li ><a class="menu" href="{{route('configs.logs.index')}}"><span>Logs</span></a></li>
                         @endpermission
 
-                        @permission('financials.list')
+                        {{-- @permission('financials.list')
                             <li ><a class="menu" href="{{route('admin.financials.index')}}"><span>Financiamientos</span></a></li>
                         @endpermission
 
@@ -217,7 +231,7 @@
 
                         @permission('checkbooks.list')
                             <li><a class="menu" href="{{route('admin.checkbooks.index')}}"><span>Chequera</span></a></li>
-                        @endpermission
+                        @endpermission --}}
                 </ul>
                 </li>
             @endpermission

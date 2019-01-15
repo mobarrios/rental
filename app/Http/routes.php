@@ -45,6 +45,9 @@ Route::group(['middleware'=>'auth'],function(){
         require(__DIR__ . '/Routes/Admin/purchasesListsPricesRoute.php');
         require(__DIR__ . '/Routes/Admin/purchasesOrdersRoute.php');
         require(__DIR__ . '/Routes/Admin/providersRoute.php');
+
+        require(__DIR__ . '/Routes/Admin/rentalsRoute.php');
+        
         require(__DIR__ . '/Routes/Admin/salesRoute.php');
         require(__DIR__ . '/Routes/Admin/smallBoxesRoute.php');
         require(__DIR__ . '/Routes/Admin/checkbooksRoute.php');

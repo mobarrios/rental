@@ -19,13 +19,11 @@ class CreateRentalTable extends Migration
 
             $table->date('from');
             $table->date('to');
-            $table->integer('type');
-        
+            $table->integer('days');
+            $table->tinyInteger('status');
+            
             $table->integer('clients_id')->unsigned();
             $table->foreign('clients_id')->references('id')->on('clients');
-
-            $table->integer('items_id')->unsigned();
-            $table->foreign('items_id')->references('id')->on('items');
 
         });
     }
@@ -37,6 +35,6 @@ class CreateRentalTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('rentals');
     }
 }

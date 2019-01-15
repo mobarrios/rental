@@ -50,9 +50,16 @@ class Models extends Entity
         return $this->Categories()->lists('categories_id')->toArray();
     }
 
+
+    //lista de precio
     public function activeListPrice()
     {
         return $this->hasOne(ModelsListsPricesItems::class)->with('ModelsListsPrices')->orderBy('updated_at', 'DESC');
+    }
+
+    public function ModelsListsPrices()
+    {
+        return $this->belongsToMany(ModelsListsPrices::class,'models_lists_prices_items','models_id','models_lists_prices_id');
     }
 
     public function activeCostPrice()
@@ -119,6 +126,13 @@ class Models extends Entity
     {
 
         return $this->types_id == 1 ? true : false;
+    }
+
+    // rentals
+
+    public function RentalsItems()
+    {
+        return $this->hasMany(RentalsItems::class);
     }
 
 }
