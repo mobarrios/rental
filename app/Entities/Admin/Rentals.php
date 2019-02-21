@@ -3,6 +3,7 @@
 
 
  use App\Entities\Entity;
+ use Carbon\Carbon;
 
  class Rentals extends Entity
  {
@@ -47,6 +48,27 @@
      public function Clients()
      {
          return $this->belongsTo(Clients::class);
+     }
+
+     public function getProcessAttribute()
+     {
+         $from   = new Carbon($this->from);
+         $to     = new Carbon($this->to);
+
+         $tot  = $from->diffInDays($to);
+
+         $diff   = $from->diffInDays();
+        
+        return $diff;
+     }
+
+     public function getTotalDiasAttribute()
+     {
+        $from   = new Carbon($this->from);
+        $to     = new Carbon($this->to);
+
+        return $from->diffInDays($to);
+
      }
 
  }

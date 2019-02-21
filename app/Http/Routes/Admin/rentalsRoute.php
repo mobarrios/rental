@@ -20,4 +20,7 @@ Route::group(['prefix'=>'rentals'],function(){
 
         Route::get('/recibo/{id?}',  ['as'=>'admin.rentals.recibo','uses'=>'Admin\RentalsController@recibo']);
 
+        Route::get('/reCalculate/{id?}',  ['as'=>'admin.rentals.reCalculate','uses'=>'Admin\RentalsController@reCalculate']);
+
+
 });

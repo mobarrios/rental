@@ -82,13 +82,31 @@ class RentalsController extends Controller
 
     public function recibo(PDF $PDF)
     {
-        $id = $this->route->getParameter('id');
-
-        $model = $this->repo->getModel()->with('Clients')->find($id);
+        $id     = $this->route->getParameter('id');
+        $model  = $this->repo->getModel()->with('Clients')->find($id);
 
         $PDF->loadView('admin.vouchers.reciboRental',compact('model'));
 
         return $PDF->stream();
+    }
+
+    public function reCalculate()
+    {
+        $id     = $this->route->getParameter('id');
+        $model  = $this->repo->getModel()->find($id);
+
+        foreach($model->RentalsItems as $ri )
+        {
+           $m  =  $this->modelsRepo->find($ri->models_id) ; 
+           echo 'valor : '.  $m->ActiveListPrice->price_list .'<br>';
+           echo 'dif : '. ( $model->process - $model->days ).'<br>';
+           echo 'dif : '. ( $model->process - $model->days ) *  $m->ActiveListPrice->price_list.'<br>';
+
+           $ri->amount = $ri->amount  + ( $model->process - $model->days ) *  $m->ActiveListPrice->price_list;
+           $ri->save();
+        }
+
+        return redirect()->back();
     }
 
 }

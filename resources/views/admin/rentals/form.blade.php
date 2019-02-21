@@ -31,7 +31,12 @@
     @if(isset($models))
     <div class="box box-body">
             <div class="col-xs-12">
-                <a href="{{route('admin.rentals.addItem',$models->id)}}"  class="btn btn-sm btn-primary"><span class="fa fa-plus"></span>  Artículo</a>
+              @if($models->process > $models->days)
+                    <a href="{{route('admin.rentals.reCalculate',$models->id)}}"  class="btn btn-sm btn-danger"><span class="fa fa-calculator"></span>  Calcular Mora</a>
+              @else 
+                    <a href="{{route('admin.rentals.addItem',$models->id)}}"  class="btn btn-sm btn-primary"><span class="fa fa-plus"></span>  Artículo</a>
+              @endif
+
             </div>
             <hr>
             @if($models->RentalsItems->count() > 0)
@@ -51,7 +56,6 @@
                                         <td> {{$rItems->Models->Brands->name}} : {{$rItems->Models->name}}</td>
                                         <td>$ {{number_format($rItems->amount,2)}}</td>
                                         <td>$ {{number_format(($rItems->quantity * $rItems->amount),2)}}</td>
-
                                         <?php 
                                          $total += $rItems->quantity * $rItems->amount;
                                         ?>

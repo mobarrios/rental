@@ -11,7 +11,7 @@
                         <th>$ Diario</th>
                         <th>C. Dias</th>
                         <th>Total</th>
-
+                        <th>Total C/Dto</th>
                     </thead>
                     <tbody>
                         @foreach($items as $it)
@@ -36,10 +36,16 @@
                                 @endif
                         </td>
                         <td>
+                            @if($it->activeListPrice)
+                                $  <input  class="total_{{$it->id}}" value="{{  number_format(( config('status.rentals.'.$days) * $it->activeListPrice->price_list) , 2 ) }}"   >                             
+                            @endif
+                        </td>
+                        <td>
                                 @if($it->activeListPrice)
-                                <a href="{{route('admin.rentals.postAddItem',[$id,$it->id , $it->activeListPrice->price_list * $days ])}}" class="add_{{$it->id}} btn btn-xs btn-default"><span>Agregar</span></a>
+                                    <a href="{{route('admin.rentals.postAddItem',[$id,$it->id , $it->activeListPrice->price_list * config('status.rentals.'.$days) ])}}" class="add_{{$it->id}} btn btn-xs btn-default"><span>Agregar</span></a>
                                 @endif
                         </td>
+                        
                     
                         </tr>
                         @endforeach
